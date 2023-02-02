@@ -1,0 +1,21 @@
+name: Test Squasher Action
+on:
+  pull_request: []
+
+jobs:
+  squash-container:
+    name: Squash Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Squash Container
+        uses: ./
+        with:
+          container: library/ubuntu
+          squashed: ubuntu:squashed
+      - name: View images
+        run: |
+          docker images
+          podman images
+

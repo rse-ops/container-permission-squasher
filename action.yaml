@@ -1,0 +1,18 @@
+name: "container permission squashed"
+description: "Change all permissions in a container to be owned by root (for Podman driver)"
+inputs:
+  container:
+    description: the container URI to port (already built)
+    required: true
+  squashed:
+    description: the squashed container URI
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Squash
+      env:
+        action_path: ${{ github.action_path }}
+        container: ${{ inputs.container }}
+      run: /bin/bash ${action_path}/squash.sh ${container} ${squashed}
