@@ -8,6 +8,34 @@ everything in the container owned by root! Any other ID would require privileged
 Given a container you have just built, this action will allow you to flatten permissions
 in this manner (and then likely push to a registry for later use).
 
+## Example
+
+Let's say our container is `library/ubuntu` and we want to squash to `ubuntu:squashed`.
+We would generate the action as follows:
+
+```yaml
+name: Squash Image
+on:
+  pull_request: []
+
+jobs:
+  squash-container:
+    name: Squash Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Squash Container
+        uses: rse-ops/container-permission-squasher@main
+        with:
+          container: library/ubuntu
+          squashed: ubuntu:squashed
+      - name: View images
+        run: |
+          docker images
+          podman images
+```
+
 ## License
 
 Copyright (c) 2017-2023, Lawrence Livermore National Security, LLC. 
