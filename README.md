@@ -31,9 +31,7 @@ jobs:
           container: library/ubuntu
           squashed: ubuntu:squashed
       - name: View images
-        run: |
-          docker images
-          podman images
+        run: podman images
 ```
 
 You can see a full example workflow (building a primary container and adding a squashed tag)

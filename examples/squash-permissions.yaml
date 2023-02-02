@@ -57,4 +57,4 @@ jobs:
       if: (github.event_name != 'pull_request')
       run: |
         docker push ${{ env.container }}:latest
-        docker push ${{ env.container }}:squashed
+        podman push ${{ env.container }}:squashed
