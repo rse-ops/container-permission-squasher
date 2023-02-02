@@ -4,10 +4,7 @@ URI=${1}
 SQUASHED=${2}
 
 echo "🎃️ Preparing to squash ${URI} into ${SQUASHED}..."
-
-# export BUILDID=$(uuidgen -r | head -c 8)
-# echo "podman build -t build:$BUILDID . "
-# podman build -t build:$BUILDID .
+export BUILDID=$(uuidgen -r | head -c 8)
 
 export CONTAINERID=$(podman create ${URI}) \
 && ( \

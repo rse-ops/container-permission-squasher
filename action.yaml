@@ -15,4 +15,6 @@ runs:
       env:
         action_path: ${{ github.action_path }}
         container: ${{ inputs.container }}
-      run: /bin/bash ${action_path}/squash.sh ${container} ${squashed}
+        squashed: ${{ inputs.squashed }}
+      run: /bin/bash ${action_path}/scripts/squash.sh ${container} ${squashed}
+      shell: bash

@@ -15,7 +15,5 @@ jobs:
           container: library/ubuntu
           squashed: ubuntu:squashed
       - name: View images
-        run: |
-          docker images
-          podman images
+        run: podman images
 
