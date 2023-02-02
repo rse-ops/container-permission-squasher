@@ -36,6 +36,9 @@ jobs:
           podman images
 ```
 
+You can see a full example workflow (building a primary container and adding a squashed tag)
+in [examples](examples/squash-permissions.yaml).
+
 ## License
 
 Copyright (c) 2017-2023, Lawrence Livermore National Security, LLC. 
